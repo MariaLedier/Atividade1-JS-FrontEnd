@@ -47,15 +47,67 @@ function Atividade3() {
 
 
 function Atividade4() {
-   
+
+    let op = prompt('Digite um operador aritmético (+ - * /):', '+');
+
     
-    let op=prompt('Digite um operador lógico:','*/+-')
+    if (op !== '*' && op !== '/' && op !== '+' && op !== '-') {
+        alert('OPERADOR INCORRETO');
+        return false;
+    }
+
+    let num1 = parseFloat(prompt('Forneça o 1° número:'));
+    let num2 = parseFloat(prompt('Forneça o 2° número:'));
+    let resultado;
+
+  
+    switch (op) {
+        case '+':
+            resultado = num1 + num2;
+            break;
+        case '-':
+            resultado = num1 - num2;
+            break;
+        case '*':
+            resultado = num1 * num2;
+            break;
+        case '/':
+            if (num2 === 0) {
+                document.write("<h4 style='color:red'>É impossível dividir por 0.</h4>");
+                return false;
+            }
+            resultado = num1 / num2;
+            break;
+    }
+
    
-    if(op!='*' || op!='/' || op!='+' || op!='*')
-        alert('OPERADOR INCORRETO')
-    else
+    document.write("<h3> 4)	Construa um script JS que utilize o Prompt. Solicite ao usuário um operador aritmético (+ - * / ) e depois dois números (use três prompts). Calcule a operação e exiba o resultado. </h3>");
+    document.write("<h4 style='color:red'>O resultado de " + num1 + " " + op + " " + num2 + " é igual a: " + resultado + "</h4>");
+}
+
+
+function Atividade5(){
+
+    let vidas=6
+    let nome = prompt('Digite seu nome:',"Aqui")
+    
+
+    //sortear numero 20 - maximo e 1 -  minimo
+    let sorteado = Math.floor(Math.random() * (20 - 1 + 1)) + 1;
+    while(vidas>0)
     {
-        document.write("<h3> 4)	Construa um script JS que utilize o Prompt. Solicite ao usuário um operador aritmético (+ - * / ) e depois dois números (use três prompts). Calcule a operação e exiba o resultado. </h3>");
+        let numero = parseInt(prompt('Digite um numero a ser adivinhado:',''))
+
+        if(numero!=sorteado)
+        {
+            document.write("<h4 style='color:red'>Errou !, o número era"+ sorteado+"</h4>")
+            vidas--;
+        }
+        else{
+            document.write("<h4 style='color:green'>Parabéns " + nome + "! Você acertou o número " + sorteado + "!</h4>");
+        }
+            
+        
     }
 
 }
