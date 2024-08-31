@@ -86,28 +86,28 @@ function Atividade4() {
 }
 
 
-function Atividade5(){
+function Atividade5() {
+    let vidas = 6;
+    let nome = prompt('Digite seu nome:', "Aqui");
 
-    let vidas=6
-    let nome = prompt('Digite seu nome:',"Aqui")
-    
+    // Sortear número entre 1 e 20
+    let sorteado = parseInt(Math.floor(Math.random() * (20 - 1 + 1)) + 1);
+    let numero = parseInt(prompt('Digite um número a ser adivinhado:', ''));
 
-    //sortear numero 20 - maximo e 1 -  minimo
-    let sorteado = Math.floor(Math.random() * (20 - 1 + 1)) + 1;
-    while(vidas>0)
-    {
-        let numero = parseInt(prompt('Digite um numero a ser adivinhado:',''))
-
-        if(numero!=sorteado)
-        {
-            document.write("<h4 style='color:red'>Errou !, o número era"+ sorteado+"</h4>")
-            vidas--;
-        }
-        else{
+    while (vidas > 0) {
+        if (numero == sorteado) {
             document.write("<h4 style='color:green'>Parabéns " + nome + "! Você acertou o número " + sorteado + "!</h4>");
+            break; 
+        } else {
+            alert("Errou! Digite novamente.");
+            vidas--;
+            if (vidas > 0) {
+                numero = parseInt(prompt('Digite um número a ser adivinhado:', ''));
+            }
         }
-            
-        
     }
 
+    if (vidas == 0) {
+        document.write(`<h4 style='color:red'>Você perdeu todas as chances. O número era: ${sorteado}</h4>`);
+    }
 }
